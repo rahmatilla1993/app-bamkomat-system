@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -19,4 +20,6 @@ public class Bank {
     @Column(nullable = false,unique = true)
     private String name;
 
+    @OneToMany(mappedBy = "bank")
+    private Set<Card> cards;
 }
