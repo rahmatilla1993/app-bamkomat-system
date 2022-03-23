@@ -18,8 +18,8 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false,unique = true)
-    private String special_number;
+    @Column(nullable = false, unique = true)
+    private String specialNumber;
 
     @Column(nullable = false)
     private String CVV_code;
@@ -27,7 +27,7 @@ public class Card {
     @Column(nullable = false)
     private Date expire_date;
 
-    private boolean status=true;
+    private boolean status = true;
 
     @Column(nullable = false)
     private Integer password;

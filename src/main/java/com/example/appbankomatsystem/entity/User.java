@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Data
 @AllArgsConstructor
@@ -38,11 +40,11 @@ public class User implements UserDetails {
     private Role role;
 
     @Transient
-    private boolean isActive=true;
+    private boolean isActive = true;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new ArrayList<>(List.of(new SimpleGrantedAuthority(role.name())));
+        return Stream.of(new SimpleGrantedAuthority(role.name())).collect(Collectors.toSet());
     }
 
     @Override
